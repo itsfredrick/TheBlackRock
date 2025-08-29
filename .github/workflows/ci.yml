@@ -1,0 +1,30 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis:7-alpine
+        ports: ["6379:6379"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Backend deps
+        run: cd apps/backend && npm ci
+      - name: Backend tests
+        run: cd apps/backend && npm test --silent
+      - name: Frontend deps
+        run: cd apps/frontend && npm ci
+      - name: Build frontend
+        run: cd apps/frontend && npm run build --silent
+      - name: AI service check
+        run: |
+          python3 -V
+          python3 - <<'PY'
+from pathlib import Path
+req=Path('apps/ai-service/requirements.txt')
+print('ai-service present:', req.exists())
+PY

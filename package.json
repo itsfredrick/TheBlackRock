@@ -1,0 +1,9 @@
+{
+  "name": "theblackrock",
+  "private": true,
+  "workspaces": [
+    "apps/backend",
+    "apps/frontend",
+    "apps/ai-service"
+  ]
+}

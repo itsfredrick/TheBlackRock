@@ -1,24 +1,17 @@
-# The BlackRock
+# TheBlackRock Monorepo
+Apps:
+- apps/backend (Express + Prisma)
+- apps/frontend (Vite + React)
+- apps/ai-service (FastAPI)
+- infrastructure (Redis for realtime)
 
-A SaaS web application built with React, TypeScript, and Vite.  
-Designed for three role views: **Entrepreneur, Investor, Engineer**.  
+## Quick start
+1) DB + seed (see earlier phases)
+2) AI service: see docs/AI_SERVICE.md
+3) Backend: `npm run dev`
+4) Frontend: `npm run dev`
 
-### 🚀 Features
-- Landing page, Login/Signup, and Onboarding flow
-- Role-based dashboards:
-  - Entrepreneur: project creation, health scoring, engineer assignments
-  - Investor (VC): startup discovery, due diligence, portfolio tracking
-  - Engineer: profile, projects, performance scoring
-- Messaging and notifications
-- Glassy Apple-style UI, similar to Upwork’s layout
-
-### 🛠 Tech Stack
-- React + Vite + TypeScript
-- React Router, TanStack Query
-- React Hook Form + Zod for forms & validation
-- Zustand for state
-- TailwindCSS for styling
-- Node.js + Express backend (future)
-- PostgreSQL + Prisma (future)
-
-### 📂 Project Structure
+## Key Docs
+- docs/AI_SERVICE.md
+- docs/TESTING.md
+- docs/adr/0001-architecture.md
